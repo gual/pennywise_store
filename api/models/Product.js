@@ -12,6 +12,25 @@ module.exports = {
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
 
+    name: {
+      type: 'string',
+      required: true,
+      maxLength: 100,
+      example: 'Balloon'
+    },
+
+    description: {
+      type: 'string',
+      required: false,
+      maxLength: 500,
+      example: 'A beautiful red balloon for you to float!'
+    },
+
+    stock: {
+      type: 'number',
+      min: 0,
+      defaultsTo: 5 // For testing purpose
+    }
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
