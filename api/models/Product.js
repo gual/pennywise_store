@@ -16,7 +16,8 @@ module.exports = {
       type: 'string',
       required: true,
       maxLength: 100,
-      example: 'Balloon'
+      example: 'Balloon',
+      unique: true
     },
 
     description: {
