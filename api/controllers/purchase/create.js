@@ -8,13 +8,6 @@ module.exports = {
 
 
   inputs: {
-    buyer: {
-      type: 'number',
-      description: 'The buyer ID.',
-      example: 66,
-      required: true
-    },
-
     item: {
       type: 'number',
       description: 'The item ID.',
@@ -46,7 +39,7 @@ module.exports = {
 
   fn: async function (inputs, exits) {
     var item = await Product.findOne({ id: inputs.item })
-    var buyer = await User.findOne({ id: inputs.buyer })
+    var buyer = await User.findOne({ id: this.req.me.id })
 
     if (!item || !buyer) { return exits.notFound(); }
 
@@ -67,7 +60,7 @@ module.exports = {
     await Transaction.create({
       category: 'purchase',
       detail: `${item.name}: ${inputs.quantity}. $${item.price} each.`,
-      user: this.req.me.id
+      user: buyer.id
     });
 
     return exits.success();

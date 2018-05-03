@@ -8,13 +8,6 @@ module.exports = {
 
 
   inputs: {
-    owner: {
-      type: 'number',
-      description: 'The owner ID.',
-      example: 66,
-      required: true
-    },
-
     item: {
       type: 'number',
       description: 'The item ID.',
@@ -33,7 +26,7 @@ module.exports = {
 
   fn: async function (inputs, exits) {
     var item = await Product.findOne({ id: inputs.item })
-    var owner = await User.findOne({ id: inputs.owner })
+    var owner = await User.findOne({ id: this.req.me.id })
 
     if (!item || !owner) { return exits.notFound(); }
 
