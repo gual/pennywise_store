@@ -18,7 +18,6 @@ module.exports.policies = {
   'view-homepage-or-redirect': true,
   'deliver-contact-form-message': true,
   'security/grant-csrf-token': true,
-  'product/find/name': true,
   'product/find': true,
   'product/create': 'is-super-admin',
   'product/update': 'is-super-admin',
