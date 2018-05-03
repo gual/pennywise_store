@@ -55,6 +55,7 @@ module.exports.routes = {
 
   'PUT /product/stock/:id': { action: 'product/stock' },
   'PUT /product/price/:id': { action: 'product/price' },
+  'GET /product/search/name': { action: 'product/search/name' },
 
   //  ╦ ╦╔═╗╔╗ ╦ ╦╔═╗╔═╗╦╔═╔═╗
   //  ║║║║╣ ╠╩╗╠═╣║ ║║ ║╠╩╗╚═╗
