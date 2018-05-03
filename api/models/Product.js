@@ -39,6 +39,12 @@ module.exports = {
       defaultsTo: 1 // For testing purpose
     },
 
+    likesQty: {
+      type: 'number',
+      min: 0,
+      defaultsTo: 0
+    },
+
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
     //  ╚═╝╩ ╩╚═╝╚═╝═╩╝╚═╝
