@@ -28,6 +28,20 @@ module.exports = {
       isIn: ['asc', 'desc'],
       defaultsTo: 'asc'
     },
+
+    skip: {
+      type: 'number',
+      description: 'The number of products to skip.',
+      min: 0,
+      required: false
+    },
+
+    limit: {
+      type: 'number',
+      description: 'The amount of products to retrieve.',
+      min: 1,
+      required: false
+    },
   },
 
 
@@ -40,6 +54,10 @@ module.exports = {
     var params = { sort: `${inputs.sort} ${inputs.order}`};
 
     if (inputs.term) { params['where'] = { name: { 'contains': inputs.term } }; }
+
+    if (inputs.skip) { params['skip'] = inputs.skip }
+
+    if (inputs.limit) { params['limit'] = inputs.limit }
 
     var products = await Product.find(params);
     return exits.success(products);
