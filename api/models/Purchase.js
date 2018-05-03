@@ -1,7 +1,7 @@
 /**
  * Purchase.js
  *
- * @description :: A Purchase definition.
+ * @description :: Represents the purchase of an item by a buyer.
  */
 
 module.exports = {
@@ -14,6 +14,7 @@ module.exports = {
 
     quantity: {
       type: 'number',
+      description: 'The amount of purchased items.',
       min: 1,
       required: true
     },
@@ -28,11 +29,13 @@ module.exports = {
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
 
     buyer: {
-      model: 'user'
+      model: 'user',
+      description: 'The user making the transaction.'
     },
 
     item: {
-      model: 'product'
+      model: 'product',
+      description: 'The bought item.',
     }
   },
 

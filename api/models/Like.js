@@ -25,11 +25,13 @@ module.exports = {
 
 
     owner: {
-      model: 'user'
+      model: 'user',
+      description: 'The user liking a product.'
     },
 
     item: {
-      model: 'product'
+      model: 'product',
+      description: 'The liked product.'
     }
   },
 

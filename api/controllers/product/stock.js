@@ -9,15 +9,15 @@ module.exports = {
 
   inputs: {
     id: {
-      description: 'The ID of the product to update its stock quantity.',
       type: 'number',
+      description: 'The product ID to update its stock.',
       example: 1,
       required: true
     },
 
     quantity: {
       type: 'number',
-      description: 'The products new stock quantity.',
+      description: 'The new product stock.',
       example: 6,
       required: true
     }

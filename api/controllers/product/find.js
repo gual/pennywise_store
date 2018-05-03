@@ -17,12 +17,14 @@ module.exports = {
 
     sort: {
       type: 'string',
+      description: 'The attribute to sort by',
       isIn: ['likesQty', 'name'],
       defaultsTo: 'name'
     },
 
     order: {
       type: 'string',
+      description: 'The order by.',
       isIn: ['asc', 'desc'],
       defaultsTo: 'asc'
     },

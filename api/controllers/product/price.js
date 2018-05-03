@@ -9,15 +9,15 @@ module.exports = {
 
   inputs: {
     id: {
-      description: 'The ID of the product to update its price.',
       type: 'number',
+      description: 'The product ID to update its price.',
       example: 1,
       required: true
     },
 
     price: {
       type: 'number',
-      description: 'The products new price.',
+      description: 'The new product price.',
       example: 6.66,
       required: true
     }

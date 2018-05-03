@@ -14,6 +14,7 @@ module.exports = {
 
     name: {
       type: 'string',
+      description: 'Identifier for a product.',
       required: true,
       maxLength: 100,
       example: 'Balloon',
@@ -22,6 +23,7 @@ module.exports = {
 
     description: {
       type: 'string',
+      description: 'Product description.',
       required: false,
       maxLength: 500,
       example: 'A beautiful red balloon for you to float!'
@@ -29,18 +31,21 @@ module.exports = {
 
     stock: {
       type: 'number',
+      description: 'Quantity available for a product.',
       min: 0,
-      defaultsTo: 5 // For testing purpose
+      defaultsTo: 0
     },
 
     price: {
       type: 'number',
+      description: 'Individual price for a product.',
       min: 0,
-      defaultsTo: 1 // For testing purpose
+      required: true
     },
 
     likesQty: {
       type: 'number',
+      description: 'Likes quantity for a product. Helper attribute to avoid aggregated queries.',
       min: 0,
       defaultsTo: 0
     },
@@ -55,11 +60,13 @@ module.exports = {
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
 
     purchases: {
+      description: 'Purchases made of this product.',
       collection: 'purchase',
       via: 'item'
     },
 
     likes: {
+      description: 'Likes instances for this product.',
       collection: 'like',
       via: 'item'
     }
