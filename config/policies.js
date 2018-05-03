@@ -19,5 +19,6 @@ module.exports.policies = {
   'deliver-contact-form-message': true,
   'security/grant-csrf-token': true,
   'product/search/name': true,
+  'product/find': true,
 
 };
