@@ -1,7 +1,8 @@
 /**
- * Product.js
+ * Like.js
  *
- * @description :: A Product definition.  Represents an item to be comercialized.
+ * @description :: A model definition.  Represents a database table/collection/etc.
+ * @docs        :: https://sailsjs.com/docs/concepts/models-and-orm/models
  */
 
 module.exports = {
@@ -12,32 +13,6 @@ module.exports = {
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
 
-    name: {
-      type: 'string',
-      required: true,
-      maxLength: 100,
-      example: 'Balloon',
-      unique: true
-    },
-
-    description: {
-      type: 'string',
-      required: false,
-      maxLength: 500,
-      example: 'A beautiful red balloon for you to float!'
-    },
-
-    stock: {
-      type: 'number',
-      min: 0,
-      defaultsTo: 5 // For testing purpose
-    },
-
-    price: {
-      type: 'number',
-      min: 0,
-      defaultsTo: 1 // For testing purpose
-    },
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
@@ -48,14 +23,13 @@ module.exports = {
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
 
-    purchases: {
-      collection: 'purchase',
-      via: 'item'
+
+    owner: {
+      model: 'user'
     },
 
-    likes: {
-      collection: 'like',
-      via: 'item'
+    item: {
+      model: 'product'
     }
   },
 

@@ -166,6 +166,11 @@ email status until they click the link in the confirmation email.`
     purchases: {
       collection: 'purchase',
       via: 'buyer'
+    },
+
+    like: {
+      collection: 'like',
+      via: 'owner'
     }
 
   },
