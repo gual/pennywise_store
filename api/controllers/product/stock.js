@@ -17,7 +17,7 @@ module.exports = {
 
     quantity: {
       type: 'number',
-      description: 'The product new stock quantity',
+      description: 'The products new stock quantity.',
       example: 6,
       required: true
     }
@@ -27,7 +27,7 @@ module.exports = {
 
   exits: {
     notFound: {
-      description: 'No product with the specified ID was found in the database.',
+      description: 'No product with the specified ID was found.',
       responseType: 'notFound'
     }
 
