@@ -20,5 +20,9 @@ module.exports.policies = {
   'security/grant-csrf-token': true,
   'product/find/name': true,
   'product/find': true,
+  'product/create': 'is-super-admin',
+  'product/update': 'is-super-admin',
+  'product/stock': 'is-super-admin', //Not in requirements
+  'product/price': 'is-super-admin'
 
 };
