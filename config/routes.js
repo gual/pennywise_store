@@ -53,8 +53,8 @@ module.exports.routes = {
   'POST  /api/v1/entrance/update-password-and-login':    { action: 'entrance/update-password-and-login' },
   'POST  /api/v1/deliver-contact-form-message':          { action: 'deliver-contact-form-message' },
 
-  'PUT /api/v1/product/stock/:id': { action: 'product/stock' },
-  'PUT /api/v1/product/price/:id': { action: 'product/price' },
+  'PATCH /api/v1/product/stock/:id': { action: 'product/stock' },
+  'PATCH /api/v1/product/price/:id': { action: 'product/price' },
 
   //  ╦ ╦╔═╗╔╗ ╦ ╦╔═╗╔═╗╦╔═╔═╗
   //  ║║║║╣ ╠╩╗╠═╣║ ║║ ║╠╩╗╚═╗
