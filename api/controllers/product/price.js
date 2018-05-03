@@ -39,8 +39,16 @@ module.exports = {
 
     if (!product) { return exits.notFound(); }
 
+    var detail = `From ${product.price} to ${inputs.price}`;
+
     await Product.update({ id: product.id }).set({
       price: inputs.price
+    });
+
+    await Transaction.create({
+      category: 'priceUpdate',
+      detail: detail,
+      user: this.req.me.id
     });
     return exits.success();
 

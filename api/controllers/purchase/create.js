@@ -64,6 +64,12 @@ module.exports = {
       quantity: inputs.quantity
     });
 
+    await Transaction.create({
+      category: 'purchase',
+      detail: `${item.name}: ${inputs.quantity}. $${item.price} each.`,
+      user: this.req.me.id
+    });
+
     return exits.success();
 
   }
