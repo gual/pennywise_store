@@ -31,6 +31,12 @@ module.exports = {
       type: 'number',
       min: 0,
       defaultsTo: 5 // For testing purpose
+    },
+
+    price: {
+      type: 'number',
+      min: 0,
+      defaultsTo: 1 // For testing purpose
     }
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
