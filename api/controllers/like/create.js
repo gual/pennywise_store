@@ -30,6 +30,10 @@ module.exports = {
 
     if (!item || !owner) { return exits.notFound(); }
 
+    var like = await Like.findOne({ owner: owner.id, item: item.id });
+
+    if (like) { return exits.success(); }
+
     await Product.update({ id: item.id }).set({
       likesQty: item.likesQty + 1
     });
