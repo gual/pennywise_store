@@ -4,10 +4,7 @@ a Snack Store on [Sails v1](https://sailsjs.com) application.
 ## Requirements
 * Node v8.4
 * SailsJS v1.0.1
-
-```sh
-$  npm install sails@1.0.1 -g
-```
+* PostgreSQL 9.4
 
 ## Backup
 1. Create a Database on PostgreSQL.
@@ -20,7 +17,22 @@ $  npm install sails@1.0.1 -g
 3. Enable the following options: _Pre-data_, _Data_, _Post-data_. Click the Restore button.
 ![Enable options](doc/img/backup2.png?raw=true "Enable options")
 
+## Installing
+```sh
+$ npm install sails@1.0.1 -g
+$ npm install
+```
 
-### Version info
+## Running
+```sh
+$ DATABASE_URL='postgresql://user:pass@host:port/db' sails lift
+```
+
+### Example
+```sh
+DATABASE_URL='postgresql://app_user:app_pass@localhost:5432/store' sails lift
+```
+
+## Version info
 
 This app was originally generated on Wed May 02 2018 15:01:34 GMT-0600 (CST) using Sails v1.0.1.
