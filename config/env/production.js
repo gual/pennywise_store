@@ -149,7 +149,7 @@ module.exports = {
     ***************************************************************************/
     cors: {
       allowOrigins: [
-        'https://quiet-forest-61795.herokuapp.com/',
+        'https://quiet-forest-61795.herokuapp.com',
       ]
     },
 
