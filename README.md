@@ -4,7 +4,8 @@ a Snack Store on [Sails v1](https://sailsjs.com) application.
 ## Requirements
 * Node v8.4
 * SailsJS v1.0.1
-* PostgreSQL 9.4
+* PostgreSQL v9.4
+* MongoDB v3.4 (For sessions)
 
 ## Backup
 1. Create a Database on PostgreSQL.
@@ -25,12 +26,14 @@ $ npm install
 
 ## Running
 ```sh
-$ DATABASE_URL='postgresql://user:pass@host:port/db' sails lift
+$ DATABASE_URL='postgresql://user:pass@host:port/db' MONGODB_URI='mongodb://user:pass@host/db' sails lift
 ```
+### Frontend
+It has a small setup for login and signup.
 
 ### Example
 ```sh
-DATABASE_URL='postgresql://app_user:app_pass@localhost:5432/store' sails lift
+DATABASE_URL='postgresql://app_user:app_pass@localhost:5432/store' MONGODB_URI='mongodb://hero4:b00uk2n@3sde.server.com:153/store_453'sails lift
 ```
 
 ## Postman
