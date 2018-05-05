@@ -28,13 +28,14 @@ $ npm install
 ```sh
 $ DATABASE_URL='postgresql://user:pass@host:port/db' MONGODB_URI='mongodb://user:pass@host/db' sails lift
 ```
-### Frontend
-It has a small setup for login and signup.
 
 ### Example
 ```sh
 DATABASE_URL='postgresql://app_user:app_pass@localhost:5432/store' MONGODB_URI='mongodb://hero4:b00uk2n@3sde.server.com:153/store_453'sails lift
 ```
+
+## Frontend
+It has a small setup for login and signup.
 
 ## Postman
 A collection of requests and variables for POSTMAN is included in `requirements.postman_collection.json` file located at the project root directory. The _Request CSRF Token_ *should be sent first* in order to adquire the CSRF token for the next requests.
