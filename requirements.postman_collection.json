@@ -1,0 +1,627 @@
+{
+	"info": {
+		"_postman_id": "918c669b-585b-48ef-9b9d-4ad86b03ec47",
+		"name": "applaudo_requirements",
+		"description": "Requests collection for Applaudo test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Request CSRF Token",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "11893664-da97-4664-b65f-0fa4b85770af",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "4c978c7d-b12a-4ace-b335-1ba527cff9ed",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"pm.globals.set(\"csrf\", jsonData._csrf);"
+						]
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{url}}/csrfToken",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"csrfToken"
+					]
+				},
+				"description": "Get initial CSRF Token"
+			},
+			"response": []
+		},
+		{
+			"name": "User creation",
+			"request": {
+				"auth": {
+					"type": "bearer"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Balloon Candy",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "A sweet balloon shaped candy",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}{{apiPrefix}}/entrance/signup?emailAddress=hpotter@hogwarts.edu&password=abc123&fullName=Harry James Potter&agreed=true&_csrf={{csrf}}",
+					"host": [
+						"{{url}}{{apiPrefix}}"
+					],
+					"path": [
+						"entrance",
+						"signup"
+					],
+					"query": [
+						{
+							"key": "emailAddress",
+							"value": "hpotter@hogwarts.edu"
+						},
+						{
+							"key": "password",
+							"value": "abc123"
+						},
+						{
+							"key": "fullName",
+							"value": "Harry James Potter"
+						},
+						{
+							"key": "agreed",
+							"value": "true"
+						},
+						{
+							"key": "_csrf",
+							"value": "{{csrf}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User login",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{url}}{{apiPrefix}}/entrance/login?emailAddress=hpotter@hogwarts.edu&password=abc123&_csrf={{csrf}}",
+					"host": [
+						"{{url}}{{apiPrefix}}"
+					],
+					"path": [
+						"entrance",
+						"login"
+					],
+					"query": [
+						{
+							"key": "emailAddress",
+							"value": "hpotter@hogwarts.edu"
+						},
+						{
+							"key": "password",
+							"value": "abc123"
+						},
+						{
+							"key": "_csrf",
+							"value": "{{csrf}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Admin creation",
+			"request": {
+				"auth": {
+					"type": "bearer"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Balloon Candy",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "A sweet balloon shaped candy",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}{{apiPrefix}}/entrance/signup?emailAddress=glockhart@hogwarts.edu&password=abc123&fullName=Gilderoy Lockhart&agreed=true&_csrf={{csrf}}&isSuperAdmin=true",
+					"host": [
+						"{{url}}{{apiPrefix}}"
+					],
+					"path": [
+						"entrance",
+						"signup"
+					],
+					"query": [
+						{
+							"key": "emailAddress",
+							"value": "glockhart@hogwarts.edu"
+						},
+						{
+							"key": "password",
+							"value": "abc123"
+						},
+						{
+							"key": "fullName",
+							"value": "Gilderoy Lockhart"
+						},
+						{
+							"key": "agreed",
+							"value": "true"
+						},
+						{
+							"key": "_csrf",
+							"value": "{{csrf}}"
+						},
+						{
+							"key": "isSuperAdmin",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Admin login",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{url}}{{apiPrefix}}/entrance/login?emailAddress=glockhart@hogwarts.edu&password=abc123&_csrf={{csrf}}",
+					"host": [
+						"{{url}}{{apiPrefix}}"
+					],
+					"path": [
+						"entrance",
+						"login"
+					],
+					"query": [
+						{
+							"key": "emailAddress",
+							"value": "glockhart@hogwarts.edu"
+						},
+						{
+							"key": "password",
+							"value": "abc123"
+						},
+						{
+							"key": "_csrf",
+							"value": "{{csrf}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Product list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{url}}{{apiPrefix}}/product",
+					"host": [
+						"{{url}}{{apiPrefix}}"
+					],
+					"path": [
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Product list pagination",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{url}}{{apiPrefix}}/product?limit=2&skip=3",
+					"host": [
+						"{{url}}{{apiPrefix}}"
+					],
+					"path": [
+						"product"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "2"
+						},
+						{
+							"key": "skip",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Product list sort",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{url}}{{apiPrefix}}/product?sort=likesQty&order=desc",
+					"host": [
+						"{{url}}{{apiPrefix}}"
+					],
+					"path": [
+						"product"
+					],
+					"query": [
+						{
+							"key": "sort",
+							"value": "likesQty"
+						},
+						{
+							"key": "order",
+							"value": "desc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Product search",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{url}}{{apiPrefix}}/product?term={{searchTerm}}",
+					"host": [
+						"{{url}}{{apiPrefix}}"
+					],
+					"path": [
+						"product"
+					],
+					"query": [
+						{
+							"key": "term",
+							"value": "{{searchTerm}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Product creation",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{url}}{{apiPrefix}}/product?_csrf={{csrf}}&name=Acid Balloon Candy&description=An acid balloon shaped candy&price=3",
+					"host": [
+						"{{url}}{{apiPrefix}}"
+					],
+					"path": [
+						"product"
+					],
+					"query": [
+						{
+							"key": "_csrf",
+							"value": "{{csrf}}"
+						},
+						{
+							"key": "name",
+							"value": "Acid Balloon Candy"
+						},
+						{
+							"key": "description",
+							"value": "An acid balloon shaped candy"
+						},
+						{
+							"key": "price",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Product delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{url}}{{apiPrefix}}/product/{{productToDeleteID}}?_csrf={{csrf}}",
+					"host": [
+						"{{url}}{{apiPrefix}}"
+					],
+					"path": [
+						"product",
+						"{{productToDeleteID}}"
+					],
+					"query": [
+						{
+							"key": "_csrf",
+							"value": "{{csrf}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Stock update",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "a881fa94-d3cf-46cb-985f-4831c68c37b5",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{url}}{{apiPrefix}}/product/stock/{{productToUpdateID}}?_csrf={{csrf}}&quantity={{$randomInt}}",
+					"host": [
+						"{{url}}{{apiPrefix}}"
+					],
+					"path": [
+						"product",
+						"stock",
+						"{{productToUpdateID}}"
+					],
+					"query": [
+						{
+							"key": "_csrf",
+							"value": "{{csrf}}"
+						},
+						{
+							"key": "quantity",
+							"value": "{{$randomInt}}"
+						}
+					]
+				},
+				"description": "Product stock quantity update"
+			},
+			"response": []
+		},
+		{
+			"name": "Price update",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{url}}{{apiPrefix}}/product/price/{{productToUpdateID}}?_csrf={{csrf}}&price={{$randomInt}}",
+					"host": [
+						"{{url}}{{apiPrefix}}"
+					],
+					"path": [
+						"product",
+						"price",
+						"{{productToUpdateID}}"
+					],
+					"query": [
+						{
+							"key": "_csrf",
+							"value": "{{csrf}}"
+						},
+						{
+							"key": "price",
+							"value": "{{$randomInt}}"
+						}
+					]
+				},
+				"description": "Product price update"
+			},
+			"response": []
+		},
+		{
+			"name": "Purchase",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{url}}{{apiPrefix}}/purchase?_csrf={{csrf}}&item={{productToPurchaseID}}&quantity=2",
+					"host": [
+						"{{url}}{{apiPrefix}}"
+					],
+					"path": [
+						"purchase"
+					],
+					"query": [
+						{
+							"key": "_csrf",
+							"value": "{{csrf}}"
+						},
+						{
+							"key": "item",
+							"value": "{{productToPurchaseID}}"
+						},
+						{
+							"key": "quantity",
+							"value": "2",
+							"description": "Optional"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Like",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{url}}{{apiPrefix}}/like?_csrf={{csrf}}&item={{productToLikeID}}",
+					"host": [
+						"{{url}}{{apiPrefix}}"
+					],
+					"path": [
+						"like"
+					],
+					"query": [
+						{
+							"key": "_csrf",
+							"value": "{{csrf}}"
+						},
+						{
+							"key": "item",
+							"value": "{{productToLikeID}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "12f0dad4-098f-4072-9ad6-1a8833d0d2ca",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "d5c4a9b0-0f6a-4750-aca7-28a8764f44c0",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "1b982bf4-dbc4-4781-a6cd-955e5a683407",
+			"key": "url",
+			"value": "localhost:1337",
+			"type": "string",
+			"description": ""
+		},
+		{
+			"id": "5e159727-2172-4c4e-94d6-8d1d59e7d1ef",
+			"key": "productToDeleteID",
+			"value": "1",
+			"type": "string",
+			"description": ""
+		},
+		{
+			"id": "162cd7ec-3a3a-4199-b785-ea5f626224a5",
+			"key": "productToUpdateID",
+			"value": "3",
+			"type": "string",
+			"description": ""
+		},
+		{
+			"id": "1edcede0-8478-4155-95d9-648f45efd622",
+			"key": "productToPurchaseID",
+			"value": "3",
+			"type": "string",
+			"description": ""
+		},
+		{
+			"id": "1df329f1-0d23-46bf-a221-00fea3ad1e07",
+			"key": "productToLikeID",
+			"value": "2",
+			"type": "string",
+			"description": ""
+		},
+		{
+			"id": "3816cb49-09e3-4845-a738-f2d9bfb067ad",
+			"key": "searchTerm",
+			"value": "Candy",
+			"type": "string",
+			"description": ""
+		},
+		{
+			"id": "68582253-574d-4462-936a-d78695c4c8dd",
+			"key": "apiPrefix",
+			"value": "/api/v1",
+			"type": "string",
+			"description": ""
+		}
+	]
+}

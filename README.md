@@ -33,6 +33,10 @@ $ DATABASE_URL='postgresql://user:pass@host:port/db' sails lift
 DATABASE_URL='postgresql://app_user:app_pass@localhost:5432/store' sails lift
 ```
 
+## Postman
+A collection of requests and variables for POSTMAN is included in `requirements.postman_collection.json` file located at the project root directory. The _Request CSRF Token_ *should be sent first* in order to adquire the CSRF token for the next requests.
+![Postman](doc/img/postman.png?raw=true "Postman")
+
 ## Version info
 
 This app was originally generated on Wed May 02 2018 15:01:34 GMT-0600 (CST) using Sails v1.0.1.
